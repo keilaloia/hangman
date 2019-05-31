@@ -19,13 +19,11 @@
     var third  = document.getElementById("t");
     var fourth = document.getElementById("ft");
     var pLetters = document.getElementById("printLetters");
-    document.getElementById("button").addEventListener("click", Awake());
-
-    function Awake()
+    document.getElementById("button").addEventListener("click", function()
     {
         playagain = true;
         gameController();
-    }
+    });
     function reset()   
     {
         plGuessed = [];
@@ -33,6 +31,7 @@
         second.textContent = "_";
         third.textContent = "_";
         fourth.textContent = "_";
+        //pLetters = [];
         curGuess = numGuess;
     }
 
@@ -87,7 +86,7 @@
                     if (correct >= guess[randomizer].length) 
                     {
                         alert("Game Won!")
-                        alert("Click Play Game to try again")
+                        alert("Click Play Game to try again");
                     }
 
                 }
@@ -104,6 +103,8 @@
                     else
                     {
                         playagain = false;
+                        reset();
+                        pLetters.textContent = ("_");
                         alert("Game Lost!")
                         alert("Click Play Game to try again")
                     }
